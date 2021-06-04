@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
+#root {
+  font-family: 'Open Sans', sans-serif;
 
+}
 .navbar-cont {
   background-image: linear-gradient(to left bottom, #ad8b92, #bc9da4, #cbafb6, #dac2c8, #ead5db);
 }
