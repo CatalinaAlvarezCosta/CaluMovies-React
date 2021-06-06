@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react'
 import NavBar from './components/navBar/navBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import CardContainer from './components/Card/CardContainer'
 
 function App() {
   return (
@@ -10,9 +11,10 @@ function App() {
       <header >
     <NavBar />
       </header>
-    <body>
+    <main>
+   <CardContainer/>
      <ItemListContainer greeting="Hola Mundo!"/>
-  </body></div>
+  </main></div>
   );
 }
 
