@@ -2,7 +2,7 @@
 import './App.css';
 import React from 'react'
 import NavBar from './components/navBar/navBar'
-
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 function App() {
   return (
@@ -10,7 +10,9 @@ function App() {
       <header >
     <NavBar />
       </header>
-    </div>
+    <body>
+     <ItemListContainer titulo="Hola Mundo!"/>
+  </body></div>
   );
 }
 

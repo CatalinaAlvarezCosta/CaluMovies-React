@@ -1,6 +1,6 @@
 import React from 'react'
 import {Navbar ,Nav, FormControl,Form,Button} from 'react-bootstrap'
-import CartWidget from './ItemListContainer/ItemListContainer'
+import CartWidget from './CartWidget'
 
 function NavBar (){
 return (
