@@ -12,10 +12,7 @@ function App() {
     <NavBar />
       </header>
     <main>
-<<<<<<< HEAD
    <CardContainer/>
-=======
->>>>>>> 6a54dc0d40d4df31e54278e1af2778344184af0f
      <ItemListContainer greeting="Hola Mundo!"/>
   </main></div>
   );
