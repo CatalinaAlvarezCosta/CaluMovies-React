@@ -11,7 +11,7 @@ function App() {
     <NavBar />
       </header>
     <body>
-     <ItemListContainer titulo="Hola Mundo!"/>
+     <ItemListContainer greeting="Hola Mundo!"/>
   </body></div>
   );
 }

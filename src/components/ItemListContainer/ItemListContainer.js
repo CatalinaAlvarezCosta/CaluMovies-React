@@ -1,9 +1,9 @@
 import React from 'react'
 
 function ItemListContainer(props) {
-  const { titulo } = props
+  const { greeting } = props
   return ( <div>
-    <h1>{titulo}</h1>
+    <h1>{greeting}</h1>
   </div> )
 }
 
