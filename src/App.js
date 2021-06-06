@@ -10,9 +10,9 @@ function App() {
       <header >
     <NavBar />
       </header>
-    <body>
+    <main>
      <ItemListContainer greeting="Hola Mundo!"/>
-  </body></div>
+  </main></div>
   );
 }
 
