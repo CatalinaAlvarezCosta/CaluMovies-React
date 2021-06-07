@@ -5,7 +5,7 @@ import ItemCount from './ItemCount'
 
 const dataCardUno = {
     titulo:'Mujer Bonita',
-    subtitulo: 'Un elegante empresario hace el esmerado intento de adaptar a una mujer a las reglas de una sofisticada empresa de negocios.',
+    subtitulo: 'Un elegante empresario,Edward Lewis,hace el esmerado intento de adaptar a una mujer llamada Vivían Ward a las reglas de una sofisticada empresa de negocios.',
     stock: 4,
     src: "Fotos/mujerbonita.jpg"
 }
@@ -26,13 +26,13 @@ function CardContainer (){
     return <div>
     <CardColumns>
         <Cards {...dataCardUno}>
-        <ItemCount/>
+        <ItemCount {...dataCardUno}/>
         </Cards>
         <Cards {...dataCardDos}>
-        <ItemCount/>
+        <ItemCount {...dataCardDos}/>
         </Cards>
         <Cards {...dataCardTres}>
-        <ItemCount/>
+        <ItemCount {...dataCardTres}/>
         </Cards>
     </CardColumns></div>
 }
