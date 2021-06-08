@@ -5,6 +5,7 @@ import NavBar from './components/navBar/navBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import CardContainer from './components/Card/CardContainer'
 
+
 function App() {
   return (
     <div className="App">

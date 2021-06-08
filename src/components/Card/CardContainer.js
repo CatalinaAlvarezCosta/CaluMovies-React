@@ -17,7 +17,7 @@ const dataCardDos = {
 }
 const dataCardTres = {
     titulo:'Realmente amor',
-    subtitulo: 'Las vidas de varias parejas se entrecruzan en Londres, poco antes de la Navidad, con resultados románticos, divertidos y agridulces.',
+    subtitulo: 'Las vidas de varias parejas se entrecruzan en Londres, poco antes de la Navidad.Esta encantadora comedia romántica cuenta diez historias de amor entrelazadas.',
     stock: 9,
     src: "Fotos/loveactually.jpg"
 }
@@ -26,13 +26,13 @@ function CardContainer (){
     return <div>
     <CardColumns>
         <Cards {...dataCardUno}>
-        <ItemCount {...dataCardUno}/>
+        <ItemCount {...dataCardUno} min="0"/>
         </Cards>
         <Cards {...dataCardDos}>
-        <ItemCount {...dataCardDos}/>
+        <ItemCount {...dataCardDos} min="0"/>
         </Cards>
         <Cards {...dataCardTres}>
-        <ItemCount {...dataCardTres}/>
+        <ItemCount {...dataCardTres} min="0"/>
         </Cards>
     </CardColumns></div>
 }

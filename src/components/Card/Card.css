@@ -1,0 +1,51 @@
+.tituloCard  {
+    font-style: italic;
+}
+
+.textoCard  {
+    font-size: 14px;
+}
+
+.resta {
+    border-radius: 50px;
+    background-color: #ead5db;
+    color: black;
+}
+.resta:hover {
+    border-radius: 50px; 
+    background-color:#ad8b92; 
+    color: white;
+}
+.suma:hover {
+    border-radius: 50px;
+    background-color:#ad8b92; 
+    color: white;
+
+}
+.suma {
+    border-radius: 50px;
+    background-color:  #ead5db;
+    color: black;
+}
+.botonAgregar{
+    border-top-color: #ad8b92; 
+    border-left-color: #ad8b92; 
+    border-right-color: #ad8b92; 
+    border-bottom-color: #ad8b92; 
+    background-color:  #ead5db; 
+    color: black;
+    border-radius: 50px;
+    letter-spacing: 3px;
+    margin-left: 2rem;
+}
+.botonAgregar:hover{
+    border-top-color: #ad8b92; 
+    border-left-color: #ad8b92; 
+    border-right-color: #ad8b92; 
+    border-bottom-color: #ad8b92; 
+    background-color:#ad8b92; 
+    color: white;
+    border-radius: 50px;
+    letter-spacing: 3px;
+    margin-left: 2rem;
+}
