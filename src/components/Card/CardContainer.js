@@ -26,13 +26,13 @@ function CardContainer (){
     return <div>
     <CardColumns>
         <Cards {...dataCardUno}>
-        <ItemCount {...dataCardUno} min="0"/>
+        <ItemCount {...dataCardUno} />
         </Cards>
         <Cards {...dataCardDos}>
-        <ItemCount {...dataCardDos} min="0"/>
+        <ItemCount {...dataCardDos} />
         </Cards>
         <Cards {...dataCardTres}>
-        <ItemCount {...dataCardTres} min="0"/>
+        <ItemCount {...dataCardTres} />
         </Cards>
     </CardColumns></div>
 }
