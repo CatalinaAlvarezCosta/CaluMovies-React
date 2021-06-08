@@ -26,13 +26,13 @@ function CardContainer (){
     return <div>
     <CardColumns>
         <Cards {...dataCardUno}>
-        <ItemCount {...dataCardUno} />
+        <ItemCount min={1} max={dataCardUno.stock}/>
         </Cards>
         <Cards {...dataCardDos}>
-        <ItemCount {...dataCardDos} />
+        <ItemCount min={1} max={dataCardDos.stock} />
         </Cards>
         <Cards {...dataCardTres}>
-        <ItemCount {...dataCardTres} />
+        <ItemCount min={1} max={dataCardTres.stock} />
         </Cards>
     </CardColumns></div>
 }
