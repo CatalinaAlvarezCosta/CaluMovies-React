@@ -11,15 +11,17 @@ const ItemCount = ({min,max})=> {
   const handleChangeAdd = () => { 
     if(count < max) {
       setCount(count +1);
-    if (count === max) setAddDisabled(true);
-      else setAddDisabled(false)
+      setMinusDisabled(false)}
+   else if (count === max) {setAddDisabled(true);}
+      else {setAddDisabled(false)
   }};
 
   const handleChangeMinus = () => {
     if(count > min) {
       setCount(count - 1);
-      if (count === min) setMinusDisabled(true);
-     }else  setMinusDisabled(false);}
+      setAddDisabled(false);}
+     else if (count === min){ setMinusDisabled(true);}
+     else  setMinusDisabled(false);}
 
 
     return <div>
