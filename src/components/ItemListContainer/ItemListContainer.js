@@ -1,10 +1,10 @@
 import React from 'react'
+import ItemsList from './ItemList'
+import CardColumns from 'react-bootstrap/CardColumns'
 
-function ItemListContainer(props) {
-  const { greeting } = props
-  return ( <div>
-    <h1>{greeting}</h1>
-  </div> )
+function ItemListContainer () {
+    return <div> <CardColumns> 
+        <ItemsList/>
+        </CardColumns></div>
 }
-
 export default ItemListContainer;

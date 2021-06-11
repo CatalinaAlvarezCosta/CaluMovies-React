@@ -1,39 +1,41 @@
 import React from 'react'
-import Cards from './Card'
-import CardColumns from 'react-bootstrap/CardColumns'
-import ItemCount from './ItemCount'
+import Items from './Item'
+import ItemCount from '../ItemCount'
 
 const dataCardUno = {
     titulo:'Mujer Bonita',
     subtitulo: 'Un elegante empresario,Edward Lewis,hace el esmerado intento de adaptar a una mujer llamada Vivían Ward a las reglas de una sofisticada empresa de negocios.',
     stock: 4,
-    src: "Fotos/mujerbonita.jpg"
+    src: "Fotos/mujerbonita.jpg",
+    precio:1000
 }
 const dataCardDos = {
     titulo:'Notting Hill',
     subtitulo: 'Anna Scott, estrella de cine, y William Thacker, un biblotecario, se conocen en un lugar llamado Notting Hill. Nace un inusitado romance, obstaculizado la prensa y sus propias diferencias.',
     stock: 8,
-    src: "Fotos/nottinghill.jpg"
+    src: "Fotos/nottinghill.jpg",
+    precio:1200
 }
 const dataCardTres = {
     titulo:'Realmente amor',
     subtitulo: 'Las vidas de varias parejas se entrecruzan en Londres, poco antes de la Navidad.Esta encantadora comedia romántica cuenta diez historias de amor entrelazadas.',
     stock: 9,
-    src: "Fotos/loveactually.jpg"
+    src: "Fotos/loveactually.jpg",
+    precio:870
 }
 
-function CardContainer (){
+function ItemsList (){
     return <div>
-    <CardColumns>
-        <Cards {...dataCardUno}>
+   
+        <Items {...dataCardUno}>
         <ItemCount min={1} max={dataCardUno.stock}/>
-        </Cards>
-        <Cards {...dataCardDos}>
+        </Items>
+        <Items {...dataCardDos}>
         <ItemCount min={1} max={dataCardDos.stock} />
-        </Cards>
-        <Cards {...dataCardTres}>
+        </Items>
+        <Items {...dataCardTres}>
         <ItemCount min={1} max={dataCardTres.stock} />
-        </Cards>
-    </CardColumns></div>
+        </Items>
+   </div>
 }
-export default CardContainer;
+export default ItemsList;
