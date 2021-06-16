@@ -34,8 +34,10 @@ function ItemListContainer () {
         useEffect(() =>{
             promiseProductos().then((productos) => {setProducto(productos) });
         },[]); 
-    return <div> <CardColumns>  {productos.map((producto,i) => 
-        <ItemsList key={i} producto={producto}/>)}
+    return <div> <CardColumns> 
+        <ItemsList >  {productos.map((producto,i) => 
+          <Items key={i} producto={producto}/>)}
+          </ItemsList>
         </CardColumns></div>
 }
 export default ItemListContainer;

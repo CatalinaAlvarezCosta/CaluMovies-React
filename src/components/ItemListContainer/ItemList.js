@@ -1,10 +1,8 @@
 import React from 'react'
-import {Items} from './Item'
 
-
-export const ItemsList = ({producto,i}) =>{
+export const ItemsList = ({children}) =>{
     
-    return <div>
-    <Items key={i} producto={producto}/> 
-   </div>
+    return <section className="itemList">
+    {children}
+   </section>
 }
