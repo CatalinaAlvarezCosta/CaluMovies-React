@@ -12,7 +12,7 @@ function App() {
     <NavBar />
       </header>
     <main>
-    <ItemDetailContainer/>
+    <ItemListContainer/>
   </main></div>
   );
 }

@@ -1,15 +1,9 @@
-import React ,{ useEffect, useState } from 'react'
+import React from 'react'
 import {ItemsList} from './ItemList'
 import CardColumns from 'react-bootstrap/CardColumns'
-import {Items} from './Item'
-
 
 function ItemListContainer () {
-    const [productos, setProducto] = useState([]);
-    const promiseProductos= () =>{
-        return new Promise ((resolve,reject)=>{
-            setTimeout(() => resolve(
-                    [
+    const data = [
                         {titulo:'Mujer Bonita',
                         subtitulo: 'Un elegante empresario,Edward Lewis,hace el esmerado intento de adaptar a una mujer llamada Vivían Ward a las reglas de una sofisticada empresa de negocios.',
                         stock: 4,
@@ -28,16 +22,9 @@ function ItemListContainer () {
                         stock: 9,
                         src: "Fotos/loveactually.jpg",
                         precio:870
-                      }]),
-                2000
-            ); }); };
-        useEffect(() =>{
-            promiseProductos().then((productos) => {setProducto(productos) });
-        },[]); 
+                      }]
     return <div> <CardColumns> 
-        <ItemsList >  {productos.map((producto,i) => 
-          <Items key={i} producto={producto}/>)}
-          </ItemsList>
+      <ItemsList producto={data}/>
         </CardColumns></div>
 }
 export default ItemListContainer;
