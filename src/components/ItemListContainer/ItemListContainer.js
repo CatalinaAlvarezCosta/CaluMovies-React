@@ -1,13 +1,11 @@
 import React ,{ useEffect, useState } from 'react'
 import {ItemsList} from './ItemList'
 import CardColumns from 'react-bootstrap/CardColumns'
-
+import Button from 'bootstrap'
 
 function ItemListContainer () {
   const [productos, setProducto] = useState([]);
- 
-
-
+  const [filter,setFilter] = useState ('')
 
   const promiseProductos= () =>{
       return new Promise ((resolve,reject)=>{
@@ -40,12 +38,18 @@ function ItemListContainer () {
             }]),
               2000
           ); }); };
+
+         const ejectuarEjercicio = () =>{
+          promiseProductos().then((productos) => {
+          productos.filter ( productos => productos.type === filter)
+            setProducto(productos) });
+      }
       useEffect(() =>{
-          promiseProductos().then((productos) => {setProducto(productos) });
+        ejectuarEjercicio();
       },[]); 
       
     
-    return <div> <CardColumns> 
+    return <div> <CardColumns>  <Button onClick = {() => setFilter ('Romanticas')}> </Button>
            <ItemsList producto={productos}/> 
         </CardColumns></div>
 }
