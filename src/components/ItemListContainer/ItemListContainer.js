@@ -1,7 +1,6 @@
 import React ,{ useEffect, useState } from 'react'
 import {ItemsList} from './ItemList'
 import CardColumns from 'react-bootstrap/CardColumns'
-import Button from 'bootstrap'
 
 function ItemListContainer () {
   const [productos, setProducto] = useState([]);

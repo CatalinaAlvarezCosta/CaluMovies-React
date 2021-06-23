@@ -1,22 +1,19 @@
 import React from 'react'
-
-import {Navbar ,Nav, FormControl,Form,Button} from 'react-bootstrap'
+import {Navbar ,Nav, FormControl,Form,Button,} from 'react-bootstrap'
 import CartWidget from './CartWidget'
+import {Link} from 'react-router-dom'
 
-const romanticas = "romatincas"
-const comedia = "comedia"
-const accion = "accion"
 function NavBar (){
 return (
     <Navbar expand="lg" className="navbar-cont" >
-    <Navbar.Brand href="#home" className="navbar-logo" to={'/'}>Calu Movies</Navbar.Brand>
+    <Navbar.Brand  className="navbar-logo" ><Link to="/">Calu Movies</Link></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-     
-        <Nav.Link href="#peliculas" to={'/category/' + romanticas} >Romanticas</Nav.Link>
-        <Nav.Link href="#nosotras" to={'/category/' + comedia} >Comedia</Nav.Link>
-        <Nav.Link href="#contacto" to={'/category/' + accion}  >Acción</Nav.Link>
+        <Nav.Link ><Link to='/'>Home </Link></Nav.Link>
+        <Nav.Link ><Link to='/category/romanticas' >Romanticas</Link></Nav.Link>
+        <Nav.Link ><Link to='/category/comedia' >Comedia</Link></Nav.Link>
+        <Nav.Link ><Link to='/category/accion'  >Acción</Link></Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Buscar películas..." className="mr-sm-2" />
