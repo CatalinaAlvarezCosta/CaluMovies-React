@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {ItemDetail} from './ItemDetail'
-
+import { useParams } from 'react-router-dom'
 
 function ItemDetailContainer () {
     const [detailProducto, setDetailProducto] = useState([]);
+    const {id} = useParams()
     const promiseDetailProducto= () =>{
         return new Promise ((resolve,reject)=>{
             setTimeout(() => resolve(
@@ -14,7 +15,7 @@ function ItemDetailContainer () {
                     src: "Fotos/mujerbonita.jpg",
                     precio:1000,
                     type:'romantica',
-                    id:1},
+                    id: 1},
                   {
                     titulo:'Notting Hill',
                     subtitulo: 'Anna Scott, estrella de cine, y William Thacker, un biblotecario, se conocen en un lugar llamado Notting Hill. Nace un inusitado romance, obstaculizado la prensa y sus propias diferencias.',
@@ -22,7 +23,7 @@ function ItemDetailContainer () {
                     src: "Fotos/nottinghill.jpg",
                     precio:1200,
                     type:'romantica',
-                    id:2
+                    id: 2
                   },
                   {
                     titulo:'Realmente amor',
@@ -31,16 +32,21 @@ function ItemDetailContainer () {
                     src: "Fotos/loveactually.jpg",
                     precio:870,
                     type:'comedia',
-                    id:3
+                    id: 3
                   }]),
                 2000
             ); }); };
+          
         useEffect(() =>{
-            promiseDetailProducto().then((detailProducto) => {setDetailProducto(detailProducto) });
-        },[]); 
+            promiseDetailProducto().then(() => {
+              detailProducto.find( element => element.id === id)
+              setDetailProducto(detailProducto) ;
+              console.log(detailProducto)
+            });
+        },[id]); 
     return <div>
-        {detailProducto.map((detailProducto,i) => 
-    <ItemDetail key={i} detailProducto={detailProducto}/> )}
+         
+    <ItemDetail detailProducto={detailProducto}/> 
    </div>
 }
  export default ItemDetailContainer

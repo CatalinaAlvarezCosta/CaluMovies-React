@@ -1,10 +1,11 @@
 import React ,{ useEffect, useState } from 'react'
 import {ItemsList} from './ItemList'
 import CardColumns from 'react-bootstrap/CardColumns'
-
+import { useParams } from 'react-router-dom'
 function ItemListContainer () {
   const [productos, setProducto] = useState([]);
-  
+      
+  const {categoryId} = useParams()
   const promiseProductos= () =>{
       return new Promise ((resolve,reject)=>{
           setTimeout(() => resolve(
@@ -37,8 +38,16 @@ function ItemListContainer () {
               2000
           ); }); };
 
-         useEffect(() =>{ promiseProductos().then((productos) => {setProducto(productos) });
-      },[]);
+    
+         useEffect(() =>{ promiseProductos().then((productos) => {
+           if ( (categoryId !== null) || (categoryId !== undefined) ){
+            const dataFiltrada = productos.filter ( element => element.type ===  categoryId );
+            setProducto(dataFiltrada )
+           }
+           else
+           { setProducto(productos)}
+          });
+      },[categoryId]);
       
     
     return <div><CardColumns> 
