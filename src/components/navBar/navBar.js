@@ -10,10 +10,10 @@ return (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link ><Link to='/'>Home </Link></Nav.Link>
         <Nav.Link ><Link to='/category/romanticas' >Romanticas</Link></Nav.Link>
         <Nav.Link ><Link to='/category/comedia' >Comedia</Link></Nav.Link>
         <Nav.Link ><Link to='/category/accion'  >Acción</Link></Nav.Link>
+        <Nav.Link ><Link to='/category/'>Ver Todas</Link></Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Buscar películas..." className="mr-sm-2" />

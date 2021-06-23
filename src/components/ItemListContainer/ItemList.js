@@ -1,11 +1,10 @@
-import React ,{ useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React  from 'react'
 import {Items} from './Item' 
 
 
-export const ItemsList = ({producto}) =>{
+export const ItemsList = ({producto,i}) =>{
     
     return <section className="itemList"> 
-    {producto.map((producto,i) => <Items producto={producto} key={i}/>)}
+    <Items producto={producto} key={i}/>
    </section>
 }

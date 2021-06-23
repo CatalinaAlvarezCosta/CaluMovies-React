@@ -1,10 +1,10 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import './Item.css';
-import ItemCount from '../ItemCount'
+import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom'
 export const Items = ({producto}) =>{
-    return    <Card ><Link to ={`/item/${producto.id}`}><Card.Img variant="top" src={producto.src} style={{ height: '20rem' }} className="cardEstilo"/>
+    return    <Card ><Card.Img variant="top" src={producto.src} style={{ height: '20rem' }} className="cardEstilo"/>
     <Card.Body>
       <Card.Title className="tituloCard">{producto.titulo}</Card.Title>
       <Card.Text className="precio">
@@ -12,8 +12,8 @@ export const Items = ({producto}) =>{
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-    <ItemCount min={1} max={producto.stock}/>
-    </Card.Footer> </Link>
+    <Button variant="outline-info"><Link to ={`/item/${producto.id}`}>Ver más</Link></Button>{' '}
+    </Card.Footer> 
      </Card> 
 }
 

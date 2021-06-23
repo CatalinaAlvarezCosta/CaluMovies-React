@@ -40,7 +40,7 @@ function ItemListContainer () {
 
     
          useEffect(() =>{ promiseProductos().then((productos) => {
-           if ( (categoryId !== null) || (categoryId !== undefined) ){
+           if ( (categoryId !== null) || (categoryId !== undefined) || (categoryId !== '') ){
             const dataFiltrada = productos.filter ( element => element.type ===  categoryId );
             setProducto(dataFiltrada )
            }
@@ -51,7 +51,8 @@ function ItemListContainer () {
       
     
     return <div><CardColumns> 
-         <ItemsList producto={productos} /> 
+      {productos.map((productos,i) => 
+         <ItemsList producto={productos} key={i} /> )}
         </CardColumns></div>
 }
 export default ItemListContainer;
