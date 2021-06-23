@@ -5,8 +5,7 @@ import Button from 'bootstrap'
 
 function ItemListContainer () {
   const [productos, setProducto] = useState([]);
-  const [filter,setFilter] = useState ('')
-
+  
   const promiseProductos= () =>{
       return new Promise ((resolve,reject)=>{
           setTimeout(() => resolve(
@@ -38,18 +37,13 @@ function ItemListContainer () {
             }]),
               2000
           ); }); };
-          
-          const dataFiltrada = data =>{
-         return filter !== '' ? data.filter ( data => data.type === filter) : data }
 
          useEffect(() =>{ promiseProductos().then((productos) => {setProducto(productos) });
       },[]);
       
     
-    return <div><div> <Button onClick={()=> setFilter('romantica')}>Romantica</Button>
-    <Button onClick={()=> setFilter('comedia')}>Comedia</Button>
-    <Button onClick={()=> setFilter('')}>Ver Todo</Button></div><CardColumns> 
-         {dataFiltrada(productos).map(()=> {return <ItemsList producto={productos} /> })}
+    return <div><CardColumns> 
+         <ItemsList producto={productos} /> 
         </CardColumns></div>
 }
 export default ItemListContainer;
