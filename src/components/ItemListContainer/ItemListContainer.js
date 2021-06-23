@@ -16,7 +16,7 @@ function ItemListContainer () {
               stock: 4,
               src: "Fotos/mujerbonita.jpg",
               precio:1000,
-              type:'Romantica',
+              type:'romantica',
               id:1},
             {
               titulo:'Notting Hill',
@@ -24,7 +24,7 @@ function ItemListContainer () {
               stock: 8,
               src: "Fotos/nottinghill.jpg",
               precio:1200,
-              type:'Romantica',
+              type:'romantica',
               id:2
             },
             {
@@ -33,24 +33,23 @@ function ItemListContainer () {
               stock: 9,
               src: "Fotos/loveactually.jpg",
               precio:870,
-              type:'Comedia',
+              type:'comedia',
               id:3
             }]),
               2000
           ); }); };
+          
+          const dataFiltrada = data =>{
+         return filter !== '' ? data.filter ( data => data.type === filter) : data }
 
-         const ejectuarEjercicio = () =>{
-          promiseProductos().then((productos) => {
-          productos.filter ( productos => productos.type === filter)
-            setProducto(productos) });
-      }
-      useEffect(() =>{
-        ejectuarEjercicio();
-      },[]); 
+         useEffect(() =>{ promiseProductos().then((productos) => {setProducto(productos) });
+      },[]);
       
     
-    return <div> <CardColumns>  <Button onClick = {() => setFilter ('Romanticas')}> </Button>
-           <ItemsList producto={productos}/> 
+    return <div><div> <Button onClick={()=> setFilter('romantica')}>Romantica</Button>
+    <Button onClick={()=> setFilter('comedia')}>Comedia</Button>
+    <Button onClick={()=> setFilter('')}>Ver Todo</Button></div><CardColumns> 
+         {dataFiltrada(productos).map(()=> {return <ItemsList producto={productos} /> })}
         </CardColumns></div>
 }
 export default ItemListContainer;
