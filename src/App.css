@@ -12,4 +12,26 @@
 .navbar-logo {
   padding-left: 1rem;
   padding-right:1rem;
+  color: black;
+}
+
+.navbar-logo:hover {
+  text-decoration: none;
+  color:black;
+  border-radius: 30px;
+
+}
+
+.navbar-items{
+  padding-left: 1rem;
+  padding-right:1rem;
+  text-decoration: none;
+  color: black;
+}
+.navbar-items:hover {
+  text-decoration: none;
+  color:black;
+  background-color:#ad8b92 ;
+  border-radius: 30px;
+
 }

@@ -11,7 +11,12 @@
 .fotoDetail{
     flex-basis: 50%;
     width:100%
+    
 }
 .infoDetail {
     flex-basis: 50%;
+}
+
+.fotoDetailImg{
+  width:100%;
 }

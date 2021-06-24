@@ -5,15 +5,15 @@ import {Link} from 'react-router-dom'
 
 function NavBar (){
 return (
-    <Navbar expand="lg" className="navbar-cont" >
-    <Navbar.Brand  className="navbar-logo" ><Link to="/">Calu Movies</Link></Navbar.Brand>
+    <Navbar  expand="lg" className="navbar-cont" >
+    <Navbar.Brand  ><Link to="/" className="navbar-logo">Calu Movies</Link></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link ><Link to='/category/romanticas' >Romanticas</Link></Nav.Link>
-        <Nav.Link ><Link to='/category/comedia' >Comedia</Link></Nav.Link>
-        <Nav.Link ><Link to='/category/accion'  >Acción</Link></Nav.Link>
-        <Nav.Link ><Link to='/category/'>Ver Todas</Link></Nav.Link>
+      <Nav.Item><Link to='/category/romantica' className="navbar-items" >Romantica</Link></Nav.Item>
+        <Nav.Item><Link to='/category/comedia' className="navbar-items">Comedia</Link></Nav.Item>
+        <Nav.Item><Link to='/category/accion'  className="navbar-items">Acción</Link></Nav.Item>
+        <Nav.Item ><Link to='/category/all'className="navbar-items">Ver Todas</Link></Nav.Item>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Buscar películas..." className="mr-sm-2" />
