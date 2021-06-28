@@ -1,22 +1,21 @@
 .detailGeneral {
-    width: 100%;
-   padding: 30px;
-   display: flex;
-   justify-content: space-between;
-   align-items: flex-start;
-   background-color: white;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: white;
   flex-wrap: wrap;
 }
 
-.fotoDetail{
-    flex-basis: 50%;
-    width:100%
-    
+.fotoDetail {
+  flex-basis: 50%;
+  width: 100%;
 }
 .infoDetail {
-    flex-basis: 50%;
+  flex-basis: 50%;
 }
 
-.fotoDetailImg{
-  width:100%;
+.fotoDetailImg {
+  width: 100%;
 }

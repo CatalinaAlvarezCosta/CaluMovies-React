@@ -1,15 +1,14 @@
 #carro {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 50px;
-    display: absolute;
-    
+  background-color: white;
+  padding: 1rem;
+  border-radius: 50px;
+  display: absolute;
 }
 #contador {
-    border-radius: 50px;
-    margin:0.1vw;
-    padding:0.3vw;
-    background-color: #ad8b92;
-    color: white;
-    font-size: 12px;
+  border-radius: 50px;
+  margin: 0.1vw;
+  padding: 0.3vw;
+  background-color: #ad8b92;
+  color: white;
+  font-size: 12px;
 }
