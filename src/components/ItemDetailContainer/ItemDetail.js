@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
+import { CartContext } from "../Cart/CartContext";
 
 export const ItemDetail = ({ detailProducto }) => {
   const history = useHistory();
-  const changeStyle = () => {
+  const [productosAgregados, setProductosAgregados] = useContext(CartContext);
+  const agregarCart = () => {
+    setProductosAgregados([...productosAgregados, detailProducto]);
     var c = document.getElementById(`${detailProducto.id}Count`);
     var t = document.getElementById(`${detailProducto.id}Terminar`);
     var a = document.getElementById(`${detailProducto.id}Agregar`);
@@ -46,7 +49,7 @@ export const ItemDetail = ({ detailProducto }) => {
         />
         <button
           id={`${detailProducto.id}Agregar`}
-          onClick={(e) => changeStyle()}
+          onClick={() => agregarCart(detailProducto)}
           className="botonAgregar"
         >
           AGREGAR AL CARRITO
