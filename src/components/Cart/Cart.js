@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import ListGroup from "react-bootstrap/ListGroup";
-
+import Button from "react-bootstrap/Button";
 const Cart = (id) => {
   const [productosAgregados, setProductosAgregados] = useContext(CartContext);
   return (
@@ -11,7 +11,7 @@ const Cart = (id) => {
         {productosAgregados.map((producto, i) => (
           <ListGroup.Item variant="dark" key={i}>
             {producto.titulo} Cantidad:{producto.cantidad}{" "}
-            <button class="boton-eliminar">
+            <button class="boton-eliminar" onClick={() => eliminarProducto()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -30,6 +30,9 @@ const Cart = (id) => {
           </ListGroup.Item>
         ))}
       </ListGroup>
+      <Button variant="outline-info" onClick={(e) => vaciarCarrito()}>
+        Borrar Todo
+      </Button>{" "}
     </div>
   );
 };

@@ -36,7 +36,13 @@ export const CartProvider = ({ children }) => {
     productosAgregados = [];
   }
   return (
-    <CartContext.Provider value={[productosAgregados, setProductosAgregados]}>
+    <CartContext.Provider
+      value={
+        ([productosAgregados, setProductosAgregados],
+        eliminarProducto,
+        vaciarCarrito)
+      }
+    >
       {children}
     </CartContext.Provider>
   );
