@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-const ItemCount = ({ min, max, idProducto }) => {
+const ItemCount = ({ min, max, producto, onAdd }) => {
   const [minusDisabled, setMinusDisabled] = useState(false);
   const [addDisabled, setAddDisabled] = useState(false);
   const [count, setCount] = useState(min);
@@ -29,7 +29,7 @@ const ItemCount = ({ min, max, idProducto }) => {
   return (
     <div>
       {" "}
-      <div id={`${idProducto}Count`}>
+      <div id={`${producto.id}Count`}>
         <Button
           className="d-inline"
           type="button"
@@ -69,6 +69,13 @@ const ItemCount = ({ min, max, idProducto }) => {
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
           </svg>{" "}
         </Button>
+        <button
+          id={`${producto.id}Agregar`}
+          onClick={() => onAdd({ producto, count })}
+          className="botonAgregar"
+        >
+          AGREGAR AL CARRITO
+        </button>
       </div>
     </div>
   );

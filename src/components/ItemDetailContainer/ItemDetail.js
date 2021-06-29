@@ -8,8 +8,13 @@ import { CartContext } from "../Cart/CartContext";
 export const ItemDetail = ({ detailProducto }) => {
   const history = useHistory();
   const [productosAgregados, setProductosAgregados] = useContext(CartContext);
-  const agregarCart = () => {
-    setProductosAgregados([...productosAgregados, detailProducto]);
+
+  const agregarCart = (count) => {
+    setProductosAgregados([
+      ...productosAgregados,
+      { item: detailProducto, cantidad: count },
+    ]);
+    console.log(productosAgregados);
     var c = document.getElementById(`${detailProducto.id}Count`);
     var t = document.getElementById(`${detailProducto.id}Terminar`);
     var a = document.getElementById(`${detailProducto.id}Agregar`);
@@ -17,6 +22,7 @@ export const ItemDetail = ({ detailProducto }) => {
     a.style.display = "none";
     c.style.display = "none";
   };
+
   const cancelChangeStye = () => {
     var c = document.getElementById(`${detailProducto.id}Count`);
     var t = document.getElementById(`${detailProducto.id}Terminar`);
@@ -29,6 +35,7 @@ export const ItemDetail = ({ detailProducto }) => {
   const styleButton = {
     display: "none",
   };
+
   return (
     <div className="detailGeneral">
       <div className="fotoDetail">
@@ -45,15 +52,9 @@ export const ItemDetail = ({ detailProducto }) => {
         <ItemCount
           min={1}
           max={detailProducto.stock}
-          idProducto={detailProducto.id}
+          producto={detailProducto}
+          onAdd={agregarCart}
         />
-        <button
-          id={`${detailProducto.id}Agregar`}
-          onClick={() => agregarCart(detailProducto)}
-          className="botonAgregar"
-        >
-          AGREGAR AL CARRITO
-        </button>
         <div id={`${detailProducto.id}Terminar`} style={styleButton}>
           {" "}
           <Button
