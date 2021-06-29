@@ -26,6 +26,7 @@ export const CartProvider = ({ children }) => {
 
   function eliminarProducto(id) {
     let productoAEliminar = productosAgregados.find((el) => el.id == id);
+    productoAEliminar.cantidad--;
     if (productoAEliminar.cantidad == 0) {
       let indice = productosAgregados.indexOf(productoAEliminar);
       productosAgregados.splice(indice, 1);
