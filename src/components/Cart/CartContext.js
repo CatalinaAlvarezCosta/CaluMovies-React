@@ -24,26 +24,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  function eliminarProducto(id) {
-    let productoAEliminar = productosAgregados.find((el) => el.id == id);
-    productoAEliminar.cantidad--;
-    if (productoAEliminar.cantidad == 0) {
-      let indice = productosAgregados.indexOf(productoAEliminar);
-      productosAgregados.splice(indice, 1);
-    }
-  }
-  function vaciarCarrito() {
-    productosAgregados.splice(0, productosAgregados.length);
-    productosAgregados = [];
-  }
   return (
-    <CartContext.Provider
-      value={
-        ([productosAgregados, setProductosAgregados],
-        eliminarProducto,
-        vaciarCarrito)
-      }
-    >
+    <CartContext.Provider value={[productosAgregados, setProductosAgregados]}>
       {children}
     </CartContext.Provider>
   );
