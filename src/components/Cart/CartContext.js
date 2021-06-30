@@ -15,8 +15,7 @@ export const CartProvider = ({ children }) => {
           element.id === productosAgregados.id
             ? {
                 ...productoCarrito,
-                cantidad:
-                  productoCarrito.cantidad + productosAgregados.cantidad,
+                cantidad: productoCarrito.cantidad + element.cantidad,
               }
             : element
         )
@@ -25,7 +24,9 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={[productosAgregados, setProductosAgregados]}>
+    <CartContext.Provider
+      value={{ productosAgregados, addItem, setProductosAgregados }}
+    >
       {children}
     </CartContext.Provider>
   );

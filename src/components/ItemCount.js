@@ -71,7 +71,7 @@ const ItemCount = ({ min, max, producto, onAdd }) => {
         </Button>
         <button
           id={`${producto.id}Agregar`}
-          onClick={() => onAdd({ producto, count })}
+          onClick={() => onAdd(count)}
           className="botonAgregar"
         >
           AGREGAR AL CARRITO

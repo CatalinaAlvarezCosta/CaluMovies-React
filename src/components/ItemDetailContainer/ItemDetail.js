@@ -7,12 +7,12 @@ import { CartContext } from "../Cart/CartContext";
 
 export const ItemDetail = ({ detailProducto }) => {
   const history = useHistory();
-  const [productosAgregados, setProductosAgregados] = useContext(CartContext);
+  const { productosAgregados, setProductosAgregados } = useContext(CartContext);
 
   const agregarCart = (count) => {
     setProductosAgregados([
       ...productosAgregados,
-      { item: detailProducto, cantidad: count },
+      { titulo: detailProducto.titulo, id: detailProducto.id, cantidad: count },
     ]);
     console.log(productosAgregados);
     var c = document.getElementById(`${detailProducto.id}Count`);
