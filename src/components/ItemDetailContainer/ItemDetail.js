@@ -31,6 +31,7 @@ export const ItemDetail = ({ detailProducto }) => {
           titulo: detailProducto.titulo,
           id: detailProducto.id,
           cantidad: count,
+          precio: detailProducto.precio,
         },
       ]);
     }

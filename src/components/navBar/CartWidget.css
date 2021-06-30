@@ -12,3 +12,11 @@
   color: white;
   font-size: 12px;
 }
+.linkCarro {
+  text-decoration: none;
+  color: black;
+}
+.linkCarro:hover {
+  text-decoration: none;
+  color: black;
+}

@@ -36,9 +36,7 @@ function NavBar() {
           </Nav.Item>
         </Nav>
         <Form inline>
-          <CartWidget>
-            <Link to="/cart" className="navbar-items"></Link>
-          </CartWidget>
+          <CartWidget />
         </Form>
       </Navbar.Collapse>
     </Navbar>

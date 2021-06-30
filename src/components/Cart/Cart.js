@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { CartContext } from "./CartContext";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 const Cart = () => {
+  const history = useHistory();
   const { productosAgregados, setProductosAgregados } = useContext(CartContext);
 
   function eliminarProducto(itemId) {
@@ -25,13 +27,29 @@ const Cart = () => {
     setProductosAgregados(productosAgregados);
   }
 
+  const totalPrice = productosAgregados.reduce(
+    (acc, el) => acc + el.precio * el.cantidad,
+    0
+  );
+
   return (
     <div>
       <h2>CARRITO</h2>
       <ListGroup>
+        <div>
+          {productosAgregados.length === 0 && (
+            <div>
+              El carrito esta vacio{" "}
+              <Button variant="outline-info" onClick={(e) => history.push("/")}>
+                Volver al inicio
+              </Button>{" "}
+            </div>
+          )}
+        </div>
         {productosAgregados.map((producto, i) => (
           <ListGroup.Item variant="dark" key={i}>
-            {producto.titulo} Cantidad:{producto.cantidad}{" "}
+            {producto.titulo} Cantidad:{producto.cantidad} Total:
+            {producto.precio * producto.cantidad}
             <button
               className="boton-eliminar"
               onClick={() => eliminarProducto(producto.id)}
@@ -53,10 +71,12 @@ const Cart = () => {
             </button>
           </ListGroup.Item>
         ))}
+        <ListGroup.Item variant="warning">Total:{totalPrice}</ListGroup.Item>
       </ListGroup>
-      <Button variant="outline-info" onClick={(e) => vaciarCarrito()}>
+      <Button variant="outline-danger" onClick={(e) => vaciarCarrito()}>
         Borrar Todo
       </Button>{" "}
+      <Button variant="outline-warning">Finalizar</Button>{" "}
     </div>
   );
 };
