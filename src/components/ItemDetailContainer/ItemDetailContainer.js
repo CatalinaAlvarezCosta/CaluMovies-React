@@ -82,7 +82,6 @@ function ItemDetailContainer() {
         (element) => element.id === idItems
       );
       setDetailProducto(dataFiltradaDetail);
-      console.log(dataFiltradaDetail);
     });
   }, [idItems]);
   return (

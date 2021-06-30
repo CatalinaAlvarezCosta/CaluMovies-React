@@ -6,10 +6,18 @@ const Cart = () => {
   const { productosAgregados, setProductosAgregados } = useContext(CartContext);
 
   function eliminarProducto(itemId) {
-    const newProductosAgregados = productosAgregados.filter(
-      (el) => el.id !== itemId
-    );
-    setProductosAgregados(newProductosAgregados);
+    const exist = productosAgregados.find((el) => el.id === itemId);
+    if (exist.cantidad === 1) {
+      setProductosAgregados(
+        productosAgregados.filter((el) => el.id !== itemId)
+      );
+    } else {
+      setProductosAgregados(
+        productosAgregados.map((el) =>
+          el.id === itemId ? { ...exist, cantidad: exist.cantidad - 1 } : el
+        )
+      );
+    }
   }
 
   function vaciarCarrito() {

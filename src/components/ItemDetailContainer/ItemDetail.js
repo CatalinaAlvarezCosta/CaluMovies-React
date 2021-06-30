@@ -10,11 +10,31 @@ export const ItemDetail = ({ detailProducto }) => {
   const { productosAgregados, setProductosAgregados } = useContext(CartContext);
 
   const agregarCart = (count) => {
-    setProductosAgregados([
-      ...productosAgregados,
-      { titulo: detailProducto.titulo, id: detailProducto.id, cantidad: count },
-    ]);
-    console.log(productosAgregados);
+    const productoCarrito = productosAgregados.find(
+      (el) => el.id === detailProducto.id
+    );
+    if (productoCarrito) {
+      setProductosAgregados(
+        productosAgregados.map((el) =>
+          el.id === detailProducto.id
+            ? {
+                ...productoCarrito,
+                cantidad: productoCarrito.cantidad + count,
+              }
+            : el
+        )
+      );
+    } else {
+      setProductosAgregados([
+        ...productosAgregados,
+        {
+          titulo: detailProducto.titulo,
+          id: detailProducto.id,
+          cantidad: count,
+        },
+      ]);
+    }
+
     var c = document.getElementById(`${detailProducto.id}Count`);
     var t = document.getElementById(`${detailProducto.id}Terminar`);
     var a = document.getElementById(`${detailProducto.id}Agregar`);
