@@ -49,8 +49,8 @@ export const ItemDetail = ({ detailProducto }) => {
     var t = document.getElementById(`${detailProducto.id}Terminar`);
     var a = document.getElementById(`${detailProducto.id}Agregar`);
     if (t.style.display === "block") t.style.display = "none";
-    a.style.display = "block";
-    c.style.display = "block";
+    a.style.display = "inline";
+    c.style.display = "inline";
   };
 
   const styleButton = {

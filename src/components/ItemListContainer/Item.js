@@ -18,7 +18,7 @@ export const Items = ({ producto }) => {
       </Card.Body>
       <Card.Footer>
         <Button variant="outline-info">
-          <Link to={`/item/${producto.id}`}>Ver más</Link>
+          <Link to={`/item/${producto.titulo}`}>Ver más</Link>
         </Button>{" "}
       </Card.Footer>
     </Card>
