@@ -32,6 +32,7 @@ export const ItemDetail = ({ detailProducto }) => {
           id: detailProducto.id,
           cantidad: count,
           precio: detailProducto.precio,
+          src: detailProducto.src,
         },
       ]);
     }

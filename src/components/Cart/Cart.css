@@ -1,0 +1,31 @@
+.carritoGeneral {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: white;
+  flex-wrap: wrap;
+}
+.cart {
+  flex-basis: 50%;
+}
+.formulario {
+  flex-basis: 50%;
+}
+.carritoImg {
+  width: 7vw;
+}
+.productosCarrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.emailDiferentes {
+  color: red;
+}
+.formularioContacto {
+  padding-left: 40px;
+  padding-right: 40px;
+  border-color: red;
+  border-style: inset;
+}

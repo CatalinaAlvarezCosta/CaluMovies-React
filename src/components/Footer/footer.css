@@ -1,0 +1,13 @@
+.footer {
+  background-color: #c2d7e5;
+  padding-top: 20px;
+  height: 9vh;
+}
+#linkFooter {
+  text-decoration: none;
+  color: black;
+}
+#linkFooter:hover {
+  text-decoration: none;
+  color: black;
+}

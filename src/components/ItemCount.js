@@ -73,8 +73,13 @@ const ItemCount = ({ min, max, producto, onAdd }) => {
           id={`${producto.id}Agregar`}
           onClick={() => onAdd(count)}
           className="botonAgregar"
+          disabled={
+            producto.stock === 0 || isNaN(producto.stock) ? true : false
+          }
         >
-          AGREGAR AL CARRITO
+          {producto.stock === 0 || isNaN(producto.stock)
+            ? "SIN STOCK"
+            : "AGREGAR AL CARRITO"}
         </button>
       </div>
     </div>
