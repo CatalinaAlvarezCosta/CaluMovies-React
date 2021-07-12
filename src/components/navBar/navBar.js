@@ -29,11 +29,6 @@ function NavBar() {
               Acción
             </Link>
           </Nav.Item>
-          <Nav.Item>
-            <Link to="/category/all" className="navbar-items">
-              Ver Todas
-            </Link>
-          </Nav.Item>
         </Nav>
         <Form inline>
           <CartWidget />

@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import { getFirestore } from "../firebase/firebase";
 import { useForm } from "react-hook-form";
-import Button from "react-bootstrap/Button";
-
+import { BotonFinalizar } from "./BotonFinalizar";
 export const Formulario = ({ totalPrice }) => {
   const { productosAgregados } = useContext(CartContext);
   const [error, setError] = useState(false);
@@ -13,32 +12,6 @@ export const Formulario = ({ totalPrice }) => {
   const [confirmEmail, setConfirmEmail] = useState();
   const [phone, setPhone] = useState();
   const { handleSubmit } = useForm();
-
-  async function generarLinkDePago() {
-    const productosLinkPago = productosAgregados.map((el) => ({
-      title: el.titulo,
-      category_id: el.id,
-      quantity: Number(el.cantidad),
-      currency_id: "ARS",
-      unit_price: Number(el.precio),
-    }));
-    const response = await fetch(
-      "https://api.mercadopago.com/checkout/preferences",
-      {
-        method: "POST",
-        headers: {
-          Authorization:
-            "Bearer TEST-3184992409945438-052000-10633f2ed0872603dcc4509d25209bf7-608112048",
-        },
-        body: JSON.stringify({
-          items: productosLinkPago,
-        }),
-      }
-    );
-    const data = await response.json();
-    window.open(data.init_point, "_blank");
-    console.log(JSON.stringify(productosLinkPago));
-  }
 
   const updateStock = () => {
     const db = getFirestore();
@@ -80,15 +53,16 @@ export const Formulario = ({ totalPrice }) => {
       .add(newOrder)
       .then(({ id }) => {
         setOrderIds(id);
+        console.log(newId);
       })
       .catch((err) => {
         setError(err);
+        console.log(error);
       })
       .finally(() => {
         updateStock();
       });
   };
-  console.log(email);
   return (
     <form className="formularioContacto" onSubmit={handleSubmit(createOrder)}>
       <h4>Datos de Contacto</h4>
@@ -131,7 +105,7 @@ export const Formulario = ({ totalPrice }) => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-exclamation-triangle"
+            className="bi bi-exclamation-triangle"
             viewBox="0 0 16 16"
           >
             <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
@@ -149,15 +123,8 @@ export const Formulario = ({ totalPrice }) => {
           placeholder="+54"
           onChange={(event) => setPhone(event.target.value)}
         />
+        <BotonFinalizar email={email} confirmEmail={confirmEmail} />
       </div>
-      <Button
-        variant="outline-warning"
-        type="submit"
-        onClick={() => generarLinkDePago()}
-        disabled={confirmEmail === email ? false : true}
-      >
-        Finalizar
-      </Button>{" "}
     </form>
   );
 };
